@@ -20,11 +20,11 @@ Where did you make the fix, and why was that the right place?
 
 How does your solution reduce the chance of this sorting bug being reintroduced?
 
-# Comunication
+# Communication
 
 ## Customer Follow-Up Message
 
-What message would you send back to the customer the customer that was experiencing this issue?
+What message would you send back to the customer who was experiencing this issue?
 
 ## Team Follow-Up Message
 
