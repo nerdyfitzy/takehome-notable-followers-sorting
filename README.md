@@ -1,7 +1,7 @@
 # Take-Home: Notable Followers Sorting Bug
 
 Welcome, and thanks for taking the time to work on this. This is a small,
-self-contained React + TypeScript app. It should take roughly **1–2 hours**.
+self-contained React + TypeScript app. The assignment is designed to take around 1 hour, with a maximum recommended time of 2 hours, so please avoid spending significantly more time than that.
 
 ## The product
 
@@ -24,9 +24,8 @@ accounts on top.
    directions (descending = largest first, ascending = smallest first).
 4. Make the provided test suite pass.
 
-We care more about _how_ you reason about the problem than about lines of code.
-A short note (a few sentences in `SOLUTION.md` or in your PR description)
-explaining the root cause and your fix goes a long way.
+We care more about _how_ you reason about the problem than about lines of code. Use the pr_description_template.md file to explain your solution. The template already includes sections for user-facing and team-facing messages, which will be used to evaluate your communication skills.
+
 
 ## Getting started
 
@@ -65,3 +64,17 @@ the data, but read them carefully.
 Make sure your fix doesn't break the other columns. If you have time, jot down
 how you'd make this sorting more robust as the app and its data grow, and what
 trade-offs your approach introduces.
+
+## Submission Instructions
+
+1. Fork this repository.
+2. Complete the assignment in your own fork.
+3. Open a pull request with your completed solution.
+4. Use the `pr_description_template.md` file for your PR description.
+   - Explain the root cause and your solution.
+   - Include the customer-facing follow-up message requested in the template.
+   - Include the team-facing message requested in the template.
+5. Email the GitHub link to your pull request to hiring@chartmetric.com with the subject line:
+
+   `[Your Name - Customer Success Engineer] Take-Home Assignment`
+
