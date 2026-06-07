@@ -6,9 +6,22 @@
  * sorting" idea our real table component uses.
  */
 
-export type SortDirection = 'asc' | 'desc';
+export type SortDirection = "asc" | "desc";
 
-export type ColumnDataType = 'number' | 'string';
+export type ColumnDataType = "number" | "string";
+
+function isNumber(value: unknown): boolean {
+  if (typeof value === "number") {
+    return Number.isFinite(value);
+  }
+
+  if (typeof value !== "string") {
+    return false;
+  }
+
+  const trimmed = value.trim();
+  return trimmed !== "" && Number.isFinite(Number(trimmed));
+}
 
 /**
  * Infers the type of a column by looking at the first non-empty value found
@@ -17,28 +30,33 @@ export type ColumnDataType = 'number' | 'string';
 export function inferColumnType<T>(rows: T[], key: keyof T): ColumnDataType {
   const sample = rows
     .map((row) => row[key])
-    .find((value) => value !== undefined && value !== null && value !== '');
+    .find((value) => value !== undefined && value !== null && value !== "");
 
-  if (typeof sample === 'number') {
-    return 'number';
+  if (isNumber(sample)) {
+    return "number";
   }
 
-  return 'string';
+  return "string";
 }
 
-const comparators: Record<ColumnDataType, (a: unknown, b: unknown) => number> = {
-  number: (a, b) => Number(a) - Number(b),
-  string: (a, b) => String(a).localeCompare(String(b)),
-};
+const comparators: Record<ColumnDataType, (a: unknown, b: unknown) => number> =
+  {
+    number: (a, b) => Number(a) - Number(b),
+    string: (a, b) => String(a).localeCompare(String(b)),
+  };
 
 /**
  * Returns a new array of rows sorted by `key` in the given `direction`.
  */
-export function sortRows<T>(rows: T[], key: keyof T, direction: SortDirection): T[] {
+export function sortRows<T>(
+  rows: T[],
+  key: keyof T,
+  direction: SortDirection,
+): T[] {
   const type = inferColumnType(rows, key);
   const compare = comparators[type];
 
   const sorted = [...rows].sort((rowA, rowB) => compare(rowA[key], rowB[key]));
 
-  return direction === 'desc' ? sorted.reverse() : sorted;
+  return direction === "desc" ? sorted.reverse() : sorted;
 }
